@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://c7hr435u5ir2"]
+
+[ext_resource type="Script" uid="uid://c0dpg8fy5dhim" path="res://gdscripts/web_view.gd" id="1_1yijx"]
+[ext_resource type="Script" uid="uid://d33i6vx1uo7er" path="res://gdscripts/action.gd" id="2_06tmt"]
+[ext_resource type="FontFile" uid="uid://u22n5jnkwp4i" path="res://fonts/MiSans-Heavy.ttf" id="2_cef6f"]
+[ext_resource type="Script" uid="uid://bo8jjwo52a4og" path="res://gdscripts/mode_label.gd" id="2_rlxh4"]
+[ext_resource type="FontFile" uid="uid://dddrrcd723yan" path="res://fonts/MiSans-Normal.ttf" id="3_fhptl"]
+[ext_resource type="Script" uid="uid://eqr3hto5s4ou" path="res://gdscripts/auto_mouse_hide.gd" id="4_arbd3"]
+[ext_resource type="LabelSettings" uid="uid://b6sh54q1d6ocy" path="res://ress/mode_label_font.tres" id="4_yrgmy"]
+[ext_resource type="Script" uid="uid://dvx4yd8lqdlji" path="res://gdscripts/ver_label.gd" id="5_fhptl"]
+[ext_resource type="Script" uid="uid://dl2iekabgfd2c" path="res://gdscripts/swap_ud_label.gd" id="7_swxlf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1yijx"]
+font = ExtResource("2_cef6f")
+font_size = 200
+
+[sub_resource type="LabelSettings" id="LabelSettings_06tmt"]
+font = ExtResource("3_fhptl")
+font_size = 160
+
+[sub_resource type="LabelSettings" id="LabelSettings_rlxh4"]
+font = ExtResource("3_fhptl")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_rmp81"]
+font = ExtResource("3_fhptl")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_yrgmy"]
+font = ExtResource("2_cef6f")
+font_size = 38
+
+[node name="Control" type="Node" unique_id=1185861933]
+
+[node name="WebViewContainer" type="Control" parent="." unique_id=442563065]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WebView" type="WebView" parent="WebViewContainer" unique_id=1814391910]
+url = "https://www.yangshipin.cn/tv/home?pid=600001859"
+transparent = true
+user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+clipboard = false
+autoplay = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1yijx")
+
+[node name="FullScreenTimer" type="Timer" parent="WebViewContainer" unique_id=722572141]
+wait_time = 5.0
+one_shot = true
+
+[node name="ChangeChannelTimer" type="Timer" parent="WebViewContainer" unique_id=914416627]
+one_shot = true
+
+[node name="HintTextContainer" type="Control" parent="." unique_id=675471822]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChLabel" type="Label" parent="HintTextContainer" unique_id=1433963949]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -340.0
+offset_right = 250.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_1yijx")
+horizontal_alignment = 1
+
+[node name="NameLabel" type="Label" parent="HintTextContainer" unique_id=269675849]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -384.0
+offset_top = 500.0
+offset_right = 384.0
+offset_bottom = 765.0
+grow_horizontal = 2
+text = "CCAV-1"
+label_settings = SubResource("LabelSettings_06tmt")
+horizontal_alignment = 1
+
+[node name="ModeLabel" type="Label" parent="HintTextContainer" unique_id=346311998]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 212.0
+offset_bottom = 85.0
+text = "当前加载模式：兼容模式"
+label_settings = ExtResource("4_yrgmy")
+script = ExtResource("2_rlxh4")
+
+[node name="BottomLabel" type="Label" parent="HintTextContainer" unique_id=1244691057]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -552.0
+offset_top = -140.0
+offset_right = 552.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "正在换台请耐心等待数据加载
+如长时间保持此画面请切换为兼容模式或换个台试试"
+label_settings = SubResource("LabelSettings_rlxh4")
+horizontal_alignment = 1
+
+[node name="VerLabel" type="Label" parent="HintTextContainer" unique_id=554610323]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -60.0
+offset_right = 314.0
+offset_bottom = -16.0
+grow_vertical = 0
+text = "APP Ver: 114.514"
+label_settings = SubResource("LabelSettings_rmp81")
+script = ExtResource("5_fhptl")
+
+[node name="SwapUDLabel" type="Label" parent="HintTextContainer" unique_id=182547752]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = 20.0
+offset_right = 194.0
+offset_bottom = 85.0
+grow_horizontal = 2
+text = "上下键倒转：OFF"
+label_settings = ExtResource("4_yrgmy")
+script = ExtResource("7_swxlf")
+
+[node name="Label" type="Label" parent="HintTextContainer" unique_id=476501609]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -485.0
+offset_top = 20.0
+offset_right = -11.0
+offset_bottom = 287.0
+grow_horizontal = 0
+text = "十字方向键：换台
+L3：切换上下键倒转
+SELECT/A：切换兼容模式
+SELECT+START/A+B：退出
+"
+label_settings = SubResource("LabelSettings_yrgmy")
+horizontal_alignment = 2
+
+[node name="Action" type="Node" parent="." unique_id=188723908]
+script = ExtResource("2_06tmt")
+
+[node name="AutoMouseHideTimer" type="Timer" parent="Action" unique_id=908260082]
+wait_time = 5.0
+one_shot = true
+autostart = true
+script = ExtResource("4_arbd3")
+
+[connection signal="fast_mode_changed" from="WebViewContainer/WebView" to="HintTextContainer/ModeLabel" method="_on_web_view_fast_mode_changed"]
+[connection signal="fast_mode_changed" from="WebViewContainer/WebView" to="Action" method="_on_web_view_fast_mode_changed"]
+[connection signal="page_load_finished" from="WebViewContainer/WebView" to="WebViewContainer/WebView" method="_on_page_load_finished"]
+[connection signal="timeout" from="WebViewContainer/FullScreenTimer" to="WebViewContainer/WebView" method="_on_full_screen_timer_timeout"]
+[connection signal="timeout" from="WebViewContainer/ChangeChannelTimer" to="Action" method="_on_change_channel_timer_timeout"]
+[connection signal="swaping_plus_and_minus" from="Action" to="HintTextContainer/SwapUDLabel" method="_on_action_swaping_plus_and_minus"]
+[connection signal="timeout" from="Action/AutoMouseHideTimer" to="Action/AutoMouseHideTimer" method="_on_mouse_hide_timeout"]
