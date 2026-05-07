@@ -54,3 +54,12 @@
 3. 本软件没有提供广告拦截功能，如将来y视频在网页内嵌广告，则本软件也将显示广告。此广告不来源于本软件。
 4. 由于Godot WRY缺乏移动端支持且存在相关法律法规要求，本软件**永不提供Android及任何TV版本**。
 5. Linux及Mac系统**暂不提供技术支持**，如需在Linux及Mac系统运行，请自行使用Godot导出、运行及测试。
+
+## 用到的第三方软件/库
+
+> Made with Godot: https://godotengine.org/
+> 
+> 浏览器界面使用Godot Wry：https://github.com/doceazedo/godot_wry
+> 
+> 字体来自MiSans：https://hyperos.mi.com/font
+> 
